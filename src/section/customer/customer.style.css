@@ -1,0 +1,26 @@
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .slider {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+  }
+
+  .logos-slide {
+    display: flex;
+    gap: 3rem;
+    width: 200%;
+    animation: slide 15s linear infinite alternate;
+  }
+
+  .logo-item {
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
