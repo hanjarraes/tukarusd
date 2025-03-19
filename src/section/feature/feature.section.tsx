@@ -39,21 +39,21 @@ const features = [
 
 
 const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
-    <div className="flex flex-col items-start bg-gray-900 rounded-lg p-5 borde-slate-700 shadow-xl">
-        <div className="flex justify-center items-center bg-slate-700 rounded-md p-2 mb-3">
-            <i className={`${icon} text-4xl text-white`} />
+    <div className="flex flex-col items-start bg-[--primary-v6] rounded-lg p-5 borde-[--primary-v4] shadow-xl">
+        <div className="flex justify-center items-center bg-[--primary-v4] rounded-md p-2 mb-3">
+            <i className={`${icon} text-4xl text-[--primary-v1]`} />
         </div>
-        <h3 className="mb-2 text-xl font-bold dark:text-white">{title}</h3>
+        <h3 className="mb-2 text-xl font-bold dark:text-[--primary-v1]">{title}</h3>
         <p className="text-gray-500 dark:text-gray-400">{description}</p>
     </div>
 );
 
 const FeaturesSection = () => {
     return (
-        <section className="bg-gray-800">
+        <section className="bg-[--primary-v5]">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <div className="max-w-screen-md mb-8 lg:mb-16">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6] dark:text-[--primary-v1]">
                         Built for the Future of Digital Finance
                     </h2>
                     <p className="text-gray-500 sm:text-xl dark:text-gray-400">

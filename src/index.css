@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    /* ------ Basic Loglines Colors ------ */
+    --primary-v1: #ffffff;
+    --primary-v2: #6e9fd5;
+    --primary-v3: #4366b0;
+    --primary-v4: #263d88;
+    --primary-v5: #272f6d;
+    --primary-v6: #0d122b;
+}
 
 * {
     font-family: 'Inter', sans-serif;

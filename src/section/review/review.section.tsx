@@ -67,10 +67,10 @@ const ReviewSection = () => {
 
 
     return (
-        <section className="bg-gray-900">
+        <section className="bg-[--primary-v6]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex gap-3">
                 <div className="flex flex-col gap-3 w-full min-w-[500px]">
-                    <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-gray-700 text-gray-100 border-[1px] border-gray-600">
+                    <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-[--primary-v4] text-[--primary-v1] border-[1px] border-gray-600">
                         <h2 className="text-3xl font-semibold text-center">Customer reviews</h2>
                         <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">
                             <div className="flex">
@@ -80,9 +80,9 @@ const ReviewSection = () => {
                                     </button>
                                 ))}
                             </div>
-                            <span className="text-gray-400">3 out of 5</span>
+                            <span className="text-[--primary-v1]">3 out of 5</span>
                         </div>
-                        <p className="text-sm text-gray-400">861 global ratings</p>
+                        <p className="text-sm text-[--primary-v1]">861 global ratings</p>
                         <div className="flex flex-col mt-4">
                             {ratings.map(({ star, width, percentage }) => (
                                 <div key={star} className="flex items-center space-x-1">
@@ -95,7 +95,7 @@ const ReviewSection = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-gray-700 text-gray-100 border-[1px] border-gray-600">
+                    <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-[--primary-v4] text-[--primary-v1] border-[1px] border-gray-600">
                         <div className="flex flex-col items-center w-full">
                             <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                             <div className="flex flex-col items-center py-6 space-y-3">
@@ -119,7 +119,7 @@ const ReviewSection = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col w-full">
-                                <textarea placeholder="Message..." className="p-4 rounded-md resize-none text-gray-800 bg-gray-50"></textarea>
+                                <textarea placeholder="Message..." className="p-4 rounded-md resize-none text-[--primary-v5] bg-gray-50"></textarea>
                                 <button type="button" className="inline-flex mt-4 items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 me-2 mb-2">
                                     Leave feedback
                                 </button>
@@ -127,21 +127,21 @@ const ReviewSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-wrap gap-3 max-h-[calc(100vh-180px)] overflow-y-auto pb-2">
+                <div className="flex flex-wrap gap-3 max-h-[calc(100vh-150px)] overflow-y-auto pb-2">
                     {reviews.map(({ name, date, rating, text }, index) => (
-                        <div key={index} className="flex flex-col w-[340px] rounded-md p-6 text-gray-100 bg-gray-700 border-[1px] border-gray-600">
+                        <div key={index} className="flex flex-col w-[340px] rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-gray-600">
                             <div className="flex justify-between pl-4">
                                 <div className="flex space-x-4">
                                     <div>
                                         <h4 className="font-bold">{name}</h4>
-                                        <span className="text-xs text-gray-200">{date}</span>
+                                        <span className="text-xs text-[--primary-v1]">{date}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center text-yellow-400 bg-gray-800 w-11 h-11 rounded-full ">
+                                <div className="flex items-center justify-center text-yellow-400 bg-[--primary-v5] w-11 h-11 rounded-full ">
                                     <span className="text-xl font-bold">{rating}</span>
                                 </div>
                             </div>
-                            <div className="p-4 space-y-2 text-sm text-gray-400">
+                            <div className="p-4 space-y-2 text-sm text-[--primary-v1]">
                                 {text.map((paragraph, idx) => (
                                     <p key={idx}>{paragraph}</p>
                                 ))}

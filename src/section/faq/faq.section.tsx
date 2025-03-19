@@ -41,24 +41,24 @@ export default function FAQSection() {
     };
 
     return (
-        <section className="bg-gray-800">
+        <section className="bg-[--primary-v5]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <h2 className="text-4xl font-bold text-center text-white mb-10">
+                <h2 className="text-4xl font-bold text-center text-[--primary-v1] mb-10">
                     Frequently Asked Questions
                 </h2>
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className="border border-gray-300 rounded-xl p-4 transition-all duration-300 shadow-2xl"
+                            className="border border-[--primary-v1] rounded-xl p-4 transition-all duration-300 shadow-2xl"
                         >
                             <button
                                 className="flex justify-between items-center w-full text-lg font-medium text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className="text-white">{faq.question}</span>
+                                <span className="text-[--primary-v1]">{faq.question}</span>
                                 <i
-                                    className={`ri-${activeIndex === index ? "subtract" : "add"}-line text-2xl transition-transform text-white duration-300 ${activeIndex === index ? "rotate-180" : "rotate-0"
+                                    className={`ri-${activeIndex === index ? "subtract" : "add"}-line text-2xl transition-transform text-[--primary-v1] duration-300 ${activeIndex === index ? "rotate-180" : "rotate-0"
                                         }`}
                                 />
                             </button>
@@ -66,7 +66,7 @@ export default function FAQSection() {
                                 className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="mt-2 text-gray-600 dark:text-gray-300">{faq.answer}</p>
+                                <p className="mt-2 text-[--primary-v4] dark:text-[--primary-v1]">{faq.answer}</p>
                             </div>
                         </div>
                     ))}
