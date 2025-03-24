@@ -12,6 +12,10 @@
     --primary-v6: #0d122b;
 }
 
+html{
+    overflow: hidden;
+}
+
 * {
     font-family: 'Inter', sans-serif;
     margin: 0;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Logo from '../assets/logo.png'
+import { title } from 'process';
+import { link } from 'fs';
 
 interface IDropdownItem {
     icon: string;
@@ -18,7 +20,24 @@ export default function Header(): React.ReactElement {
         { icon: "ri-puzzle-line", title: "Automations", description: "Build strategic funnels that will convert" },
     ];
 
-    const menuItems = ["Company", "Marketplace", "Features", "Team", "Contact"];
+    const menuItems = [
+        {
+            title: "Home",
+            link: "#",
+        },
+        {
+            title: "How To",
+            link: "#",
+        },
+        {
+            title: "FAQ",
+            link: "#faq",
+        },
+        {
+            title: "Review",
+            link: "#",
+        }
+    ];
 
     const DropdownItem = ({ icon, title, description }: IDropdownItem) => (
         <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-[--primary-v4]">
@@ -37,7 +56,7 @@ export default function Header(): React.ReactElement {
 
     return (
         <header>
-            <nav className="bg-[--primary-v1] border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-[--primary-v5]">
+            <nav className="bg-[--primary-v1] border-gray-200 px-4 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <a href="#" className="flex items-center">
                         <img src={Logo} className="mr-3 h-6 sm:h-9" alt="BiteCoint Logo" />
@@ -52,10 +71,8 @@ export default function Header(): React.ReactElement {
                     </div>
                     <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <a href="#" className="block py-2 pr-4 pl-3 text-[--primary-v1] rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-[--primary-v1]" aria-current="page">Home</a>
-                            </li>
-                            <li>
+
+                            {/* <li>
                                 <div className="hidden lg:flex lg:gap-x-12">
                                     <div className="relative">
                                         <button
@@ -70,8 +87,6 @@ export default function Header(): React.ReactElement {
                                                     }`}
                                             />
                                         </button>
-
-                                        {/* Dropdown */}
                                         <div
                                             className={`absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-[--primary-v6] shadow-lg ring-1 ring-[--primary-v6]/5 transition-all duration-300 ease-out ${isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-3 pointer-events-none"
                                                 }`}
@@ -92,14 +107,14 @@ export default function Header(): React.ReactElement {
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            {menuItems.map((item) => (
-                                <li key={item}>
+                            </li> */}
+                            {menuItems.map((item, idx) => (
+                                <li key={idx}>
                                     <a
-                                        href="#"
-                                        className="block py-2 pr-4 pl-3 text-[--primary-v4] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-[--primary-v2] lg:dark:hover:text-[--primary-v1] dark:hover:bg-[--primary-v4] dark:hover:text-[--primary-v1] lg:dark:hover:bg-transparent dark:border-[--primary-v4]"
+                                        href={item.link}
+                                        className="block py-2 pr-4 pl-3 text-[--primary-v5] border-b border-gray-100 hover:bg-gray-50 lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-[--primary-v2] hover:bg-[--primary-v4] hover:text-[--primary-v5] lg:hover:bg-transparent border-[--primary-v4]"
                                     >
-                                        {item}
+                                        {item.title}
                                     </a>
                                 </li>
                             ))}

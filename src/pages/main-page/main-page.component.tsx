@@ -5,6 +5,7 @@ import FeaturesSection from 'section/feature/feature.section'
 import FAQSection from 'section/faq/faq.section'
 import ReviewSection from 'section/review/review.section'
 import Hero from '../../assets/hero.png'
+import InviteSection from 'section/invite/invite.section'
 
 const MainPage = () => {
 
@@ -21,7 +22,7 @@ const MainPage = () => {
 
                 <div className="relative grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
-                        <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-[--primary-v1]">Build Your Crypto Future with BiteCoin</h1>
+                        <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-[--primary-v1]">Build Your Crypto Future with TukarUSDT</h1>
                         <p className="max-w-2xl mb-6 font-light text-[--primary-v3] lg:mb-8 md:text-lg lg:text-xl dark:text-[--primary-v2]">A secure and user-friendly platform for every level of investor. Start your digital journey today!</p>
                         <a href="#"
                             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-[--primary-v1] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 me-2 mb-2">
@@ -34,7 +35,7 @@ const MainPage = () => {
             {/* And Hero */}
 
             {/* social */}
-            <section className="bg-[--primary-v5]">
+            {/* <section className="bg-[--primary-v5]">
                 <div className="relative max-w-screen-xl px-4 py-8 mx-auto text-center  border-2 border-[--primary-v6] rounded-lg dark:bg-[--primary-v6] mt-[-69px] shadow-2xl">
                     <dl className="grid max-w-screen-md gap-8 mx-auto text-[--primary-v6] sm:grid-cols-4 dark:text-[--primary-v1]">
                         <div className="flex flex-col items-center justify-center">
@@ -55,15 +56,15 @@ const MainPage = () => {
                         </div>
                     </dl>
                 </div>
-            </section>
+            </section> */}
             {/* end soscial */}
 
             {/* customer logo */}
-            <CustomerSection />
+            {/* <CustomerSection /> */}
             {/* end customer logo */}
 
             {/* heading */}
-            <section className="bg-[--primary-v6]">
+            {/* <section className="bg-[--primary-v6]">
                 <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                     <div className="font-light text-[--primary-v3] sm:text-lg dark:text-[--primary-v2]">
                         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6] dark:text-[--primary-v1]">Empowering a  Crypto Community</h2>
@@ -79,7 +80,7 @@ const MainPage = () => {
                         <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2" />
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/* end heading */}
 
             {/* Feature */}
@@ -108,7 +109,11 @@ const MainPage = () => {
                 </div>
             </section>
             {/* end CTA */}
-            
+
+            {/* Invite */}
+            <InviteSection />
+            {/* aed Invite  */}
+
             {/* Review */}
             <ReviewSection />
             {/* end Review */}

@@ -1,41 +1,42 @@
 const features = [
     {
-        icon: "ri-wallet-3-line",
-        title: "Secure Digital Wallet",
+        icon: "ri-flashlight-line",
+        title: "Transaksi Cepat",
         description:
-            "Store, send, and receive cryptocurrencies with ease. Our multi-layer security ensures your assets stay safe at all times.",
+            "Proses transaksi instan dengan kecepatan tinggi untuk kenyamanan kamu.",
     },
     {
-        icon: "ri-exchange-dollar-line",
-        title: "Instant Transactions",
+        icon: "ri-customer-service-2-line",
+        title: "Layanan Personal",
         description:
-            "Enjoy lightning-fast transactions with minimal fees. Buy, sell, and trade crypto seamlessly on our platform.",
+            "Tim support yang siap membantu kamu dengan layanan eksklusif dan profesional.",
     },
     {
-        icon: "ri-shield-check-line",
-        title: "Enterprise-Grade Security",
+        icon: "ri-shield-star-line",
+        title: "Likuiditas Terbaik",
         description:
-            "BiteCoin employs cutting-edge encryption and AI-powered fraud detection to keep your assets secure.",
+            "Akses likuiditas tinggi untuk memastikan transaksi kamu berjalan lancar tanpa hambatan.",
     },
     {
-        icon: "ri-global-line",
-        title: "Borderless Payments",
+        icon: "ri-bank-card-line",
+        title: "Deposit Tidak Terbatas",
         description:
-            "Send and receive payments across the globe without intermediaries. Lower costs, faster transfers, and full transparency.",
+            "Menerima deposit dalam jumlah besar, baik dalam bentuk fiat maupun kripto.",
     },
     {
-        icon: "ri-bar-chart-box-line",
-        title: "Advanced Trading Tools",
+        icon: "ri-exchange-funds-line",
+        title: "Harga Kompetitif",
         description:
-            "Take control of your investments with real-time analytics, AI-driven insights, and automated trading bots.",
+            "Dapatkan harga terbaik dengan biaya transaksi rendah untuk keuntungan maksimal.",
     },
     {
-        icon: "ri-community-line",
-        title: "Decentralized Finance (DeFi)",
+        icon: "ri-bar-chart-line",
+        title: "Competitive Rate",
         description:
-            "Access a range of DeFi services, including staking, yield farming, and lending, all in one secure ecosystem.",
+            "Kami menyediakan nilai tukar terbaik untuk setiap transaksi kamu.",
     },
 ];
+
 
 
 const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
@@ -50,13 +51,13 @@ const FeatureCard = ({ icon, title, description }: { icon: string; title: string
 
 const FeaturesSection = () => {
     return (
-        <section className="bg-[--primary-v5]">
+        <section className="bg-[--primary-v1]">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <div className="max-w-screen-md mb-8 lg:mb-16">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6] dark:text-[--primary-v1]">
+                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6]">
                         Built for the Future of Digital Finance
                     </h2>
-                    <p className="text-gray-500 sm:text-xl dark:text-gray-400">
+                    <p className="text-gray-500 sm:text-xl">
                         At BiteCoin, we harness the power of blockchain to create an ecosystem that is secure, efficient, and accessible to all.
                         Whether you're a trader, investor, or business, our cutting-edge solutions are designed to help you thrive in the digital economy.
                     </p>

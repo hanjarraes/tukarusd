@@ -4,7 +4,7 @@ import Logo from '../assets/logo.png'
 
 export default function Footer(): React.ReactElement {
     return (
-        <footer className="bg-[--primary-v1] dark:bg-[--primary-v6]">
+        <footer className="bg-[--primary-v1]">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -12,7 +12,7 @@ export default function Footer(): React.ReactElement {
                             <img src={Logo} className="h-14 me-3" alt="BiteCoint Logo" />
                         </a>
                     </div>
-                    <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    {/* <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-[--primary-v6] uppercase dark:text-[--primary-v1]">Resources</h2>
                             <ul className="text-[--primary-v3] dark:text-[--primary-v2] font-medium">
@@ -46,9 +46,14 @@ export default function Footer(): React.ReactElement {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
-                <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <div className='text-[--primary-v5] mt-10 leading-4'>
+                    Please note, trading crypto assets is a high -risk activity. The value of crypto assets is fluctuating and can change significantly from time to time. Past performance does not reflect future performance.
+                    There is a risk of loss as a result of buying and selling crypto assets and fully the independent decision of the user.
+                    TukarUSDT is not responsible for changes in fluctuations in the exchange rate of crypto assets.
+                </div>
+                {/* <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-[--primary-v3] sm:text-center dark:text-[--primary-v2]">© 2025 <a href="https://BiteCoint.com/" className="hover:underline">BiteCoint™</a>. All Rights Reserved.
                     </span>
@@ -84,7 +89,7 @@ export default function Footer(): React.ReactElement {
                             <span className="sr-only">Dribbble account</span>
                         </a>
                     </div>
-                </div>
+                </div> */}
             </div>
         </footer>
 
