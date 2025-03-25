@@ -5,27 +5,40 @@ import { getConfig } from 'config/config.service'
 import { mainRoutes } from './routes/routes'
 
 const getBaseUrl = () => {
-    const config = getConfig()
-    return config.apiUrl
+    return 'https://otc.corecraft.my.id/'
 }
 
 export const fetch = async <D, T>(props: IFetch<T>) => {
     try {
         const response: AxiosResponse<D> = await axios.get(
-            getBaseUrl() + props.endpoint,
+            'https://otc.corecraft.my.id/' + props.endpoint,
             {
                 params: props.params,
             },
         )
         return response.data
     } catch (error) {
-        if (axios.isAxiosError(error) && error.response?.status === 401) {
-            throw new Error('Unauthorized Access: Please log in')
-        } else {
-            throw new Error('No Data Available')
-        }
+        console.error(error)
     }
 }
+
+export const post = async <D, T>(props: IPost<T>) => {
+    const response: AxiosResponse<D> = await axios.post(
+        'https://otc.corecraft.my.id/' + props.endpoint,
+        props?.payload,
+        {
+            headers: {
+                'Content-Type': props?.isFormData
+                    ? 'multipart/form-data'
+                    : 'application/json',
+            },
+            params: props?.params,
+        },
+    )
+
+    return response.data
+}
+
 
 export const fetchOptions = async <D>(props: IFetchOptions) => {
     try {
@@ -41,23 +54,6 @@ export const fetchOptions = async <D>(props: IFetchOptions) => {
         }
     }
 }
-
-export const post = async <D, T>(props: IPost<T>) => {
-    const response: AxiosResponse<D> = await axios.post(
-        getBaseUrl() + props.endpoint,
-        props?.payload,
-        {
-            headers: {
-                'Content-Type': props?.isFormData
-                    ? 'multipart/form-data'
-                    : 'application/json',
-            },
-            params: props?.params,
-        },
-    )
-    return response.data
-}
-
 export const put = async <D, T>(props: IPost<T>) => {
     const response: AxiosResponse<D> = await axios.put(
         getBaseUrl() + props.endpoint,

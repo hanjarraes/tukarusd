@@ -1,38 +1,43 @@
-import { useState } from "react";
+import { fetch, post } from "common/common.service";
+import { useEffect, useState } from "react";
+import { IDataReview } from "./review.interface";
+import { Toast } from "component/toast/toast.component";
 
-const useReview = (
-    // { onFileUpload }: { onFileUpload: (file: File) => void; }
-) => {
-
+const useReview = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [message, setMessage] = useState<string>('');
+    const [name, setName] = useState<string>('');
+    const [dataReview, setDataReview] = useState<IDataReview[]>();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files && event.target.files.length > 0) {
-            const file = event.target.files[0];
-            if (validateFile(file)) {
-                setSelectedFile(file);
-                // onFileUpload(file);
-            }
+        const file = event.target.files?.[0];
+        if (file && validateFile(file)) {
+            setSelectedFile(file);
+        } else {
+            setSelectedFile(null);
         }
     };
 
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
-        if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
-            const file = event.dataTransfer.files[0];
-            if (validateFile(file)) {
-                setSelectedFile(file);
-                // onFileUpload(file);
-            }
+        const file = event.dataTransfer.files?.[0];
+        if (file && validateFile(file)) {
+            setSelectedFile(file);
+        } else {
+            setSelectedFile(null);
         }
     };
 
+    // Validasi hanya PNG & JPG
     const validateFile = (file: File): boolean => {
-        const allowedFormats = ["image/png", "image/jpeg", "application/pdf", "application/vnd.ms-excel"];
+        const allowedFormats = ["image/png", "image/jpeg"];
         const maxSize = 5 * 1024 * 1024; // 5MB
 
         if (!allowedFormats.includes(file.type)) {
-            alert("Invalid file format. Allowed formats: PNG, JPG, PDF, XLS");
+            alert("Invalid file format. Only PNG and JPG are allowed.");
             return false;
         }
 
@@ -43,12 +48,106 @@ const useReview = (
 
         return true;
     };
+    const getReview = async () => {
+        try {
+            const response = await fetch<{ data: IDataReview[] }, unknown>({ endpoint: `api/review` });
+            if (response) {
+                setDataReview(response.data);
+            }
+        } catch (error) {
+            console.error("Error fetching reviews:", error);
+        }
+    };
+
+
+    const postReview = async () => {
+        // Validasi input sebelum mengirim data
+        if (!name.trim()) {
+            Toast({
+                header: 'Validation Error',
+                message: 'Name is required.',
+                type: 'error',
+            });
+            return;
+        }
+        if (!message.trim()) {
+            Toast({
+                header: 'Validation Error',
+                message: 'Message is required.',
+                type: 'error',
+            });
+            return;
+        }
+        if (!rating || rating < 1 || rating > 5) {
+            Toast({
+                header: 'Validation Error',
+                message: 'Please provide a valid rating between 1 and 5.',
+                type: 'error',
+            });
+            return;
+        }
+        if (!(selectedFile instanceof File)) {
+            Toast({
+                header: 'Validation Error',
+                message: 'Please upload a valid image file.',
+                type: 'error',
+            });
+            return;
+        }
+
+        try {
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("message", message);
+            formData.append("rating", rating.toString());
+            formData.append("file", selectedFile);
+
+            const response = await post({
+                payload: formData,
+                endpoint: "api/review/create",
+                isFormData: true,
+            });
+
+            console.log("Review posted successfully:", response);
+            return response;
+        } catch (error) {
+            console.error("Error posting review:", error);
+            Toast({
+                header: 'Submission Error',
+                message: 'Failed to post review. Please try again later.',
+                type: 'error',
+            });
+        }
+    };
+
+
+    const updateData = async () => {
+        setIsLoading(true);
+        await postReview()
+        setIsLoading(false);
+        await getReview()
+    }
+
+    useEffect(() => {
+        getReview();
+    }, []);
 
     return {
         selectedFile,
+        message,
+        name,
+        dataReview,
+        isLoading,
+        rating,
+        hoverRating,
+        setRating,
+        setHoverRating,
+        updateData,
+        setName,
+        setMessage,
         handleFileChange,
         handleDrop,
-    }
-}
+    };
+};
 
-export default useReview
+export default useReview;
