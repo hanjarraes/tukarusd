@@ -127,7 +127,7 @@ const ReviewSection = () => {
                     </div>
                 </div> */}
             <div className="relative w-full overflow-hidden ">
-                <div className="flex justify-center w-full pt-10 text-[--primary-v6] text-[40px] font-bold" data-aos="fade-up" data-aos-duration={`1000`}>
+                <div className="flex justify-center w-full pt-10 text-[--primary-v6] px-[2rem] sm:px-[5rem] text-4xl font-bold" data-aos="fade-up" data-aos-duration={`1000`}>
                     They Talk About TukarUSDT – See What They Say!
                 </div>
                 <div
@@ -145,7 +145,7 @@ const ReviewSection = () => {
                         {[...dataReview, ...dataReview].map(({ name, updated_at, rating, message, file }, index) => (
                             <div
                                 key={index}
-                                className="flex flex-col w-[400px] shrink-0 rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-gray-600 "
+                                className="flex flex-col w-[400px] shrink-0 rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-[--primary-v4]"
                             >
                                 <div className="flex justify-between pl-4">
                                     <div className="flex space-x-4">

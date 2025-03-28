@@ -51,7 +51,7 @@ export default function FAQSection() {
                         <div
                             key={index}
                             data-aos="fade-up" data-aos-duration={`1000`}
-                            className="border border-[--primary-v6] rounded-xl p-4 transition-all duration-300 shadow-2xl"
+                            className="border  bg-[--primary-v1] rounded-xl p-4 transition-all duration-300 shadow-2xl"
                         >
                             <button
                                 className="flex justify-between items-center w-full text-lg font-medium text-left"

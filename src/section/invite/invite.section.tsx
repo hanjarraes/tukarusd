@@ -27,12 +27,12 @@ export default function InviteSection() {
     const [activeStep, setActiveStep] = useState(0);
 
     return (
-        <div className="flex flex-col items-center py-10 bg-gradient-to-r from-[--primary-v2] to-[--primary-v3]">
-            <h2 className="text-[32px] font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>Experience the best with TukarUSDT OTC—join us now! </h2>
-            <div className="flex flex-col items-center justify-center gap-3">
+        <div className="flex flex-col items-center py-10 bg-[--primary-v1]">
+            <h2 className=" px-[2rem] sm:px-[5rem] text-4xl  font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>Experience the best with TukarUSDT OTC—join us now! </h2>
+            <div className="flex flex-col items-center justify-center gap-3 w-full">
                 {steps.map((step, index) => (
-                    <div key={index} className="flex flex-col items-center w-[600px]" data-aos="fade-up" data-aos-duration={`1000`}>
-                        <div className="grid grid-cols-3 gap-3 w-full items-center">
+                    <div key={index} className="flex flex-col items-center w-[350px] sm:w-[600px]" data-aos="fade-up" data-aos-duration={`1000`}>
+                        <div className="grid grid-cols-3 gap-1 sm:gap-3 w-full items-center">
                             <div className={`text-[22px] text-right w-full font-semibold ${index === activeStep ? "text-[--primary-v6]" : "text-[--primary-v4]"}`}>
                                 {`${index + 1}. ${step.title}`}
                             </div>
@@ -48,7 +48,7 @@ export default function InviteSection() {
 
 
                             {index === activeStep && (
-                                <div className="text-left text-[18px] w-[200px]">
+                                <div className="text-left text-[18px] w-[100px] sm:w-[200px]">
                                     <p className="text-[--primary-v6]">{step.description}</p>
                                 </div>
                             )}

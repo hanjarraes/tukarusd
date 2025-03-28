@@ -53,10 +53,10 @@ const FeaturesSection = () => {
                         Discover TukarUSDT Features:<br /> Secure & Seamless USDT Trading
                     </div>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" >
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1" >
                     {features.map((feature, index) => (
                         <div key={`item-feature-${index}`} data-aos="fade-up" data-aos-duration={`1000`}  className="flex flex-col items-start bg-[--primary-v2] rounded-lg p-5 border-[--primary-v2] shadow-xl">
-                            <div className="flex justify-center items-center bg-[--primary-v4] rounded-md p-2 mb-3">
+                            <div className="flex justify-center items-center bg-[--primary-v1] rounded-md p-2 mb-3">
                                 <img className="w-[50px]" src={feature.icon} alt="image" />
                             </div>
                             <h3 className="mb-2 text-xl font-bold dark:text-[--primary-v1]">{feature.title}</h3>
