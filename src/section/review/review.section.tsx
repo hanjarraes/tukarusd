@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import useReview from "./review.service";
 
 const ReviewSection = () => {
@@ -15,25 +16,29 @@ const ReviewSection = () => {
         selectedFile,
         message,
         name,
-        dataReview = [],
+        dataReview,
         isLoading,
-        rating, 
-        hoverRating, 
+        rating,
+        hoverRating,
+        containerRef,
+        handleMouseDown,
+        offset,
+        handleMouseUp,
+        handleMouseMove,
         setRating,
         setHoverRating,
+        updateData,
         setName,
         setMessage,
         handleFileChange,
         handleDrop,
-        updateData,
     } = useReview()
     const convertToKB = (bytes: number) => (bytes / 1024).toFixed(2);
 
-
     return (
-        <section className="bg-[--primary-v6]">
-            <div className="max-w-7xl mx-auto grid grid-cols-5 gap-2 py-10">
-                <div className="col-span-2 flex flex-col max-w-xl shadow-sm rounded-xl lg:p-12 bg-[--primary-v4] text-[--primary-v1] border-[1px] border-gray-600">
+        <section className="">
+            {/* <div className="max-w-7xl mx-auto grid grid-cols-5 gap-2 py-10"> */}
+            {/* <div className="col-span-2 flex flex-col max-w-xl shadow-sm rounded-xl lg:p-12 bg-[--primary-v4] text-[--primary-v1] border-[1px] border-gray-600">
                     <div className="flex flex-col items-center w-full">
                         <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                         <div className="flex flex-col items-center py-6 space-y-3">
@@ -80,7 +85,6 @@ const ReviewSection = () => {
                                 </div>
                             </div>
 
-                            {/* Area Drag & Drop */}
                             <div
                                 onDragOver={(e) => e.preventDefault()}
                                 onDrop={handleDrop}
@@ -121,33 +125,57 @@ const ReviewSection = () => {
                             </button>
                         </div>
                     </div>
+                </div> */}
+            <div className="relative w-full overflow-hidden ">
+                <div className="flex justify-center w-full pt-10 text-[--primary-v6] text-[40px] font-bold" data-aos="fade-up" data-aos-duration={`1000`}>
+                    They Talk About TukarUSDT – See What They Say!
                 </div>
-                <div className="col-span-3 grid grid-cols-2 gap-3 max-h-[calc(100vh-410px)] overflow-y-auto pb-2">
-                    {dataReview.map(({ name, updated_at, rating, message, file }, index) => (
-                        <div key={index} className="flex flex-col w-full rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-gray-600">
-                            <div className="flex justify-between pl-4">
-                                <div className="flex space-x-4">
-                                    <div>
-                                        <h4 className="font-bold">{name}</h4>
-                                        <span className="text-xs text-[--primary-v1]">{updated_at}</span>
+                <div
+                    className="relative w-full py-10 cursor-grab active:cursor-grabbing"
+                    ref={containerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                >
+                    <div
+                        className="flex gap-4 w-max whitespace-nowrap transition-transform duration-500"
+                        style={{ transform: `translateX(${offset}px)` }}
+                    >
+                        {[...dataReview, ...dataReview].map(({ name, updated_at, rating, message, file }, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col w-[400px] shrink-0 rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-gray-600 "
+                            >
+                                <div className="flex justify-between pl-4">
+                                    <div className="flex space-x-4">
+                                        <div>
+                                            <h4 className="font-bold break-words">{name}</h4>
+                                            <span className="text-xs text-[--primary-v1] break-words">{updated_at}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center justify-center text-yellow-400 bg-[--primary-v5] w-11 h-11 rounded-full">
+                                        <span className="text-xl font-bold">{rating}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center text-yellow-400 bg-[--primary-v5] w-11 h-11 rounded-full ">
-                                    <span className="text-xl font-bold">{rating}</span>
+                                {file && (
+                                    <div className="flex justify-center mt-4">
+                                        <img
+                                            src={'https://otc.corecraft.my.id/' + file}
+                                            className="w-full h-[250px] rounded-md pointer-events-none"
+                                            alt="Review"
+                                        />
+                                    </div>
+                                )}
+                                <div className="p-4 space-y-2 text-sm text-[--primary-v1] h-[150px] overflow-y-auto break-words leading-relaxed">
+                                    <p className="whitespace-pre-wrap">{message}</p>
                                 </div>
                             </div>
-                            {file &&
-                                <div className="flex justify-center mt-4">
-                                    <img src={'https://otc.corecraft.my.id/' + file} className="w-full h-[250px] rounded-md" />
-                                </div>
-                            }
-                            <div className="p-4 space-y-2 text-sm text-[--primary-v1]">
-                                <p>{message}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
+            {/* </div> */}
         </section>
     );
 };

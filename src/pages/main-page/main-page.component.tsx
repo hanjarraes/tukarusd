@@ -1,11 +1,10 @@
 
-import CustomerSection from 'section/customer/customer.section'
-import './main-page.style.css'
 import FeaturesSection from 'section/feature/feature.section'
 import FAQSection from 'section/faq/faq.section'
 import ReviewSection from 'section/review/review.section'
 import Hero from '../../assets/hero.png'
 import InviteSection from 'section/invite/invite.section'
+import './main-page.style.css'
 
 const MainPage = () => {
 
@@ -17,17 +16,18 @@ const MainPage = () => {
                     style={{
                         backgroundImage: `url('${Hero}')`
                     }}>
-                    <div className="absolute inset-0 bg-black opacity-60"></div>
+                    <div className="absolute inset-0 bg-black opacity-10"></div>
                 </div>
 
                 <div className="relative grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
-                        <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-[--primary-v1]">Build Your Crypto Future with TukarUSDT</h1>
-                        <p className="max-w-2xl mb-6 font-light text-[--primary-v3] lg:mb-8 md:text-lg lg:text-xl dark:text-[--primary-v2]">A secure and user-friendly platform for every level of investor. Start your digital journey today!</p>
-                        <a href="#"
-                            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-[--primary-v1] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 me-2 mb-2">
-                            Get started
-                            <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-[--primary-v6]" data-aos="fade-in" data-aos-duration={`1000`}>TukarUSDT OTC</h1>
+                        <p className="max-w-2xl mb-6 text-[--primary-v6] lg:mb-8 md:text-lg lg:text-xl font-bold w-[350px]" data-aos="fade-in" data-aos-duration={`1000`}>Sell your USDT with us for the best rates and secure transactions!</p>
+                        <a
+                            data-aos="fade-in" data-aos-duration={`1000`}
+                            href="#"
+                            className="w-[200px] inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-[--primary-v1] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 me-2 mb-2">
+                            Start OTC
                         </a>
                     </div>
                 </div>
@@ -35,28 +35,24 @@ const MainPage = () => {
             {/* And Hero */}
 
             {/* social */}
-            {/* <section className="bg-[--primary-v5]">
-                <div className="relative max-w-screen-xl px-4 py-8 mx-auto text-center  border-2 border-[--primary-v6] rounded-lg dark:bg-[--primary-v6] mt-[-69px] shadow-2xl">
-                    <dl className="grid max-w-screen-md gap-8 mx-auto text-[--primary-v6] sm:grid-cols-4 dark:text-[--primary-v1]">
+            <section className="bg-[--primary-v1]">
+                <div className="relative max-w-screen-xl px-4 py-8 mx-auto text-center rounded-lg  bg-gradient-to-r from-[--primary-v2] to-[--primary-v3] mt-[-69px] shadow-2xl" data-aos="fade-up" data-aos-duration={`1000`}>
+                    <div className="grid max-w-screen-md gap-8 mx-auto text-[--primary-v6] sm:grid-cols-3 dark:text-[--primary-v1]">
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">73M+</dt>
-                            <dd className="font-light text-[--primary-v3] dark:text-[--primary-v2]"> Users worldwide</dd>
+                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">15000+</dt>
+                            <dd className="font-light text-[--primary-v4]">Total users</dd>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">1B+</dt>
-                            <dd className="font-light text-[--primary-v3] dark:text-[--primary-v2]">Successful processed</dd>
+                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">$100M+</dt>
+                            <dd className="font-light text-[--primary-v4]">Daily turnover</dd>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">4M+</dt>
-                            <dd className="font-light text-[--primary-v3] dark:text-[--primary-v2]"> Innovative Projects</dd>
+                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">100.000+</dt>
+                            <dd className="font-light text-[--primary-v4]">Transactions</dd>
                         </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">250+</dt>
-                            <dd className="font-light text-[--primary-v3] dark:text-[--primary-v2]">regions supported</dd>
-                        </div>
-                    </dl>
+                    </div>
                 </div>
-            </section> */}
+            </section>
             {/* end soscial */}
 
             {/* customer logo */}
@@ -88,7 +84,7 @@ const MainPage = () => {
             {/* aed Feature  */}
 
             {/* CTA */}
-            <section className="bg-[--primary-v1] dark:bg-[--primary-v6]">
+            {/* <section className="bg-[--primary-v1] dark:bg-[--primary-v6]">
                 <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                     <img className="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image" />
                     <img className="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image" />
@@ -107,7 +103,7 @@ const MainPage = () => {
                         </a>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/* end CTA */}
 
             {/* Invite */}

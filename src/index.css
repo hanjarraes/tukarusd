@@ -5,15 +5,16 @@
 :root {
     /* ------ Basic Loglines Colors ------ */
     --primary-v1: #ffffff;
-    --primary-v2: #6e9fd5;
-    --primary-v3: #4366b0;
-    --primary-v4: #263d88;
-    --primary-v5: #272f6d;
-    --primary-v6: #0d122b;
+    --primary-v2: #A0E1F2; /* Warna lebih terang dari #60CCE5 */
+    --primary-v3: #60CCE5; /* Warna utama */
+    --primary-v4: #3A98B0; /* Warna lebih gelap dari #60CCE5 */
+    --primary-v5: #1E6F85; /* Warna lebih gelap lagi */
+    --primary-v6: #0C3944; /* Warna paling gelap */
 }
 
+
 html{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 * {

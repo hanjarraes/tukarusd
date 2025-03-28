@@ -26,17 +26,21 @@ export default function Header(): React.ReactElement {
             link: "#",
         },
         {
-            title: "How To",
+            title: "Features",
+            link: "#",
+        },
+        {
+            title: "How To Join",
+            link: "#",
+        },
+        {
+            title: "Review",
             link: "#",
         },
         {
             title: "FAQ",
             link: "#faq",
         },
-        {
-            title: "Review",
-            link: "#",
-        }
     ];
 
     const DropdownItem = ({ icon, title, description }: IDropdownItem) => (
@@ -56,15 +60,32 @@ export default function Header(): React.ReactElement {
 
     return (
         <header>
-            <nav className="bg-[--primary-v1] border-gray-200 px-4 lg:px-6 py-2.5">
+            <nav className="bg-[--primary-v1] border-gray-200 px-4 py-8 lg:px-6 ">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <a href="#" className="flex items-center">
                         <img src={Logo} className="mr-3 h-6 sm:h-9" alt="BiteCoint Logo" />
                     </a>
                     <div className="flex items-center lg:order-2">
-                        {/* <a href="#" className="text-[--primary-v5] dark:text-[--primary-v1] hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-[--primary-v4] focus:outline-none dark:focus:ring-[--primary-v5]">Log in</a> */}
-                        {/* <a href="#" className="text-[--primary-v1] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get started</a> */}
-                        <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-[--primary-v3] rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-[--primary-v2] dark:hover:bg-[--primary-v4] dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+
+                        <a href="#"
+                            className=" inline-flex items-center justify-center px-10 py-2 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-[--primary-v1] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800">
+                            Contact
+                        </a>
+                        <div className="flex flex-row items-center right-1 rounded-md ml-2 cursor-pointer">
+                            <button className="p-2 flex flex-row  gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-l-md border-r-0 cursor-pointer"
+                            >
+                                <span className="text-md">En</span>
+                                <span className='text-[20px]'>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                            </button>
+
+                            <button className="p-2 flex flex-row  gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-r-md cursor-pointer"
+                            >
+                                <span className="text-md">In</span>
+                                <span className='text-[20px]'> 🇮🇩</span>
+                            </button>
+                        </div>
+
+                        <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-[--primary-v3] rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 hover:bg-[--primary-v4] " aria-controls="mobile-menu-2" aria-expanded="false">
                             <span className="sr-only">Open main menu</span>
                             <i className="ri-menu-3-line text-[20px]" />
                         </button>
@@ -77,7 +98,7 @@ export default function Header(): React.ReactElement {
                                     <div className="relative">
                                         <button
                                             type="button"
-                                            className="flex items-center py-2 pr-4 pl-3 text-[--primary-v4] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-[--primary-v2] lg:dark:hover:text-[--primary-v1] dark:hover:bg-[--primary-v4] dark:hover:text-[--primary-v1] lg:dark:hover:bg-transparent dark:border-[--primary-v4]"
+                                            className="flex items-center py-2 pr-4 pl-3 text-[--primary-v4] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 text-[--primary-v2] lg:hover:text-[--primary-v1] hover:bg-[--primary-v4] dark:hover:text-[--primary-v1] lg:dark:hover:bg-transparent dark:border-[--primary-v4]"
                                             aria-expanded={isOpen}
                                             onClick={() => setIsOpen(!isOpen)}
                                         >

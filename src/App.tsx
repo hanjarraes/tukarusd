@@ -16,56 +16,14 @@ function App(): React.ReactElement {
         })
     }, [])
 
-    useEffect(() => {
-        const contentElement = contentRef.current
-        if (contentElement) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        let playTimeout
-                        let video = entry.target as HTMLVideoElement
-                        if (entry.isIntersecting) {
-                            if (video.paused)
-                                playTimeout = setTimeout(() => {
-                                    video.currentTime = 0
-                                    video.play()
-                                }, 500)
-                        } else {
-                            if (playTimeout) {
-                                clearTimeout(playTimeout)
-                                playTimeout = null
-                            }
-                            video.pause()
-                            video.currentTime = 0
-                        }
-                    })
-                },
-                {
-                    root: contentElement,
-                    threshold: 0.85,
-                },
-            )
-
-            document.querySelectorAll('video').forEach((video) => {
-                observer.observe(video)
-            })
-
-            return () => {
-                observer.disconnect()
-            }
-        }
-    }, [])
-
     return (
         <>
             <div className="logistical-layout">
-                <div className="logistical-content w-full" ref={contentRef}>
-                    <Header />
-                    <Content>
-                        <Outlet />
-                    </Content>
-                    <Footer />
-                </div>
+                <Header />
+                <Content>
+                    <Outlet />
+                </Content>
+                <Footer />
             </div>
         </>
     )

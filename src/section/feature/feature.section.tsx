@@ -1,71 +1,67 @@
+import Payment from "../../assets/payment.png";
+import Unlimited from "../../assets/unlimited-websites.png";
+import Bitcoint from "../../assets/bitcoin.png";
+import MoneyBag from "../../assets/money-bag.png";
+import People from "../../assets/people.png";
+import Hours from "../../assets/24-hours-service.png";
+
 const features = [
     {
-        icon: "ri-flashlight-line",
-        title: "Transaksi Cepat",
+        icon: Payment,
+        title: "Fast Transaction",
         description:
-            "Proses transaksi instan dengan kecepatan tinggi untuk kenyamanan kamu.",
+            "Enjoy 15 minutes Fast Transaction Experience process from confirmation to completion.",
     },
     {
-        icon: "ri-customer-service-2-line",
-        title: "Layanan Personal",
+        icon: Unlimited,
+        title: "Multiple Bank & Blockchain",
         description:
-            "Tim support yang siap membantu kamu dengan layanan eksklusif dan profesional.",
+            "Seamless payments with multiple banking and blockchain network choices.",
     },
     {
-        icon: "ri-shield-star-line",
-        title: "Likuiditas Terbaik",
+        icon: Bitcoint,
+        title: "Best Liquidity & Zero Fees",
         description:
-            "Akses likuiditas tinggi untuk memastikan transaksi kamu berjalan lancar tanpa hambatan.",
+            "We provide deep liquidity for a better trading experience and zero fees on crypto trades starting from $5,000.",
     },
     {
-        icon: "ri-bank-card-line",
-        title: "Deposit Tidak Terbatas",
-        description:
-            "Menerima deposit dalam jumlah besar, baik dalam bentuk fiat maupun kripto.",
-    },
-    {
-        icon: "ri-exchange-funds-line",
-        title: "Harga Kompetitif",
-        description:
-            "Dapatkan harga terbaik dengan biaya transaksi rendah untuk keuntungan maksimal.",
-    },
-    {
-        icon: "ri-bar-chart-line",
+        icon: MoneyBag,
         title: "Competitive Rate",
         description:
-            "Kami menyediakan nilai tukar terbaik untuk setiap transaksi kamu.",
+            "We offer the most competitive rates in the market.",
+    },
+    {
+        icon: People,
+        title: "Exclusive Services",
+        description:
+            "Dedicated professionals focused on delivering exceptional service and long-term trust.",
+    },
+    {
+        icon: Hours,
+        title: "Competitive Rate",
+        description:
+            "Offering exclusive 24/7 dedicated services just for you.",
     },
 ];
-
-
-
-const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
-    <div className="flex flex-col items-start bg-[--primary-v6] rounded-lg p-5 borde-[--primary-v4] shadow-xl">
-        <div className="flex justify-center items-center bg-[--primary-v4] rounded-md p-2 mb-3">
-            <i className={`${icon} text-4xl text-[--primary-v1]`} />
-        </div>
-        <h3 className="mb-2 text-xl font-bold dark:text-[--primary-v1]">{title}</h3>
-        <p className="text-gray-500 dark:text-gray-400">{description}</p>
-    </div>
-);
 
 const FeaturesSection = () => {
     return (
         <section className="bg-[--primary-v1]">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-                <div className="max-w-screen-md mb-8 lg:mb-16">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6]">
-                        Built for the Future of Digital Finance
-                    </h2>
-                    <p className="text-gray-500 sm:text-xl">
-                        At BiteCoin, we harness the power of blockchain to create an ecosystem that is secure, efficient, and accessible to all.
-                        Whether you're a trader, investor, or business, our cutting-edge solutions are designed to help you thrive in the digital economy.
-                    </p>
+                <div className="max-w-screen-md mb-8 lg:mb-16" data-aos="fade-up" data-aos-duration={`1000`}>
+                    <div className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v4]">
+                        Discover TukarUSDT Features:<br /> Secure & Seamless USDT Trading
+                    </div>
                 </div>
-
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" >
                     {features.map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
+                        <div key={`item-feature-${index}`} data-aos="fade-up" data-aos-duration={`1000`}  className="flex flex-col items-start bg-[--primary-v2] rounded-lg p-5 border-[--primary-v2] shadow-xl">
+                            <div className="flex justify-center items-center bg-[--primary-v4] rounded-md p-2 mb-3">
+                                <img className="w-[50px]" src={feature.icon} alt="image" />
+                            </div>
+                            <h3 className="mb-2 text-xl font-bold dark:text-[--primary-v1]">{feature.title}</h3>
+                            <p className="text-[--primary-v5]">{feature.description}</p>
+                        </div>
                     ))}
                 </div>
             </div>

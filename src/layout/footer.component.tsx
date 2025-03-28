@@ -6,10 +6,17 @@ export default function Footer(): React.ReactElement {
     return (
         <footer className="bg-[--primary-v1]">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                <div className="md:flex md:justify-between">
+                <div className="flex justify-between items-center">
                     <div className="mb-6 md:mb-0">
                         <a href="#" className="flex items-center">
                             <img src={Logo} className="h-14 me-3" alt="BiteCoint Logo" />
+                        </a>
+                    </div>
+                    <div className='flex flex-col items-center mx-4'>
+                        <i className="ri-customer-service-2-line text-[48px]" />
+                        <a href="#"
+                            className=" inline-flex items-center justify-center px-10 py-2 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-[--primary-v1] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800">
+                            Contact
                         </a>
                     </div>
                     {/* <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -53,10 +60,8 @@ export default function Footer(): React.ReactElement {
                     There is a risk of loss as a result of buying and selling crypto assets and fully the independent decision of the user.
                     TukarUSDT is not responsible for changes in fluctuations in the exchange rate of crypto assets.
                 </div>
-                {/* <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-[--primary-v3] sm:text-center dark:text-[--primary-v2]">© 2025 <a href="https://BiteCoint.com/" className="hover:underline">BiteCoint™</a>. All Rights Reserved.
-                    </span>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="#" className="text-[--primary-v3] hover:text-[--primary-v6] dark:hover:text-[--primary-v1]">
                             <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
@@ -89,7 +94,7 @@ export default function Footer(): React.ReactElement {
                             <span className="sr-only">Dribbble account</span>
                         </a>
                     </div>
-                </div> */}
+                </div>
             </div>
         </footer>
 

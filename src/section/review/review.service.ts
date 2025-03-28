@@ -1,5 +1,5 @@
 import { fetch, post } from "common/common.service";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IDataReview } from "./review.interface";
 import { Toast } from "component/toast/toast.component";
 
@@ -7,10 +7,17 @@ const useReview = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [message, setMessage] = useState<string>('');
     const [name, setName] = useState<string>('');
-    const [dataReview, setDataReview] = useState<IDataReview[]>();
+    const [dataReview, setDataReview] = useState<IDataReview[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [rating, setRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
+
+    const [offset, setOffset] = useState(0);
+    const itemWidth = 420; // Lebar kartu + margin/gap
+    const containerRef = useRef(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [dragOffset, setDragOffset] = useState(0);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -108,10 +115,8 @@ const useReview = () => {
                 isFormData: true,
             });
 
-            console.log("Review posted successfully:", response);
             return response;
         } catch (error) {
-            console.error("Error posting review:", error);
             Toast({
                 header: 'Submission Error',
                 message: 'Failed to post review. Please try again later.',
@@ -120,13 +125,40 @@ const useReview = () => {
         }
     };
 
-
     const updateData = async () => {
         setIsLoading(true);
         await postReview()
         setIsLoading(false);
         await getReview()
     }
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (!isDragging) {
+          setOffset((prevOffset) => (prevOffset - itemWidth) % (dataReview.length * itemWidth));
+        }
+      }, 10000);
+      return () => clearInterval(interval);
+    }, [dataReview.length, isDragging]);
+  
+    const handleMouseDown = (e: any) => {
+      setIsDragging(true);
+      setStartX(e.clientX);
+      setDragOffset(offset);
+    };
+  
+    const handleMouseMove = (e: any) => {
+      if (!isDragging) return;
+      const diff = e.clientX - startX;
+      setOffset(dragOffset + diff);
+    };
+  
+    const handleMouseUp = () => {
+      setIsDragging(false);
+      const adjustedOffset = Math.round(offset / itemWidth) * itemWidth;
+      setOffset(adjustedOffset);
+    };
+
 
     useEffect(() => {
         getReview();
@@ -140,6 +172,11 @@ const useReview = () => {
         isLoading,
         rating,
         hoverRating,
+        containerRef,
+        offset,
+        handleMouseDown,
+        handleMouseUp,
+        handleMouseMove,
         setRating,
         setHoverRating,
         updateData,
