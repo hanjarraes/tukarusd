@@ -27,7 +27,7 @@ export default function InviteSection() {
     const [activeStep, setActiveStep] = useState(0);
 
     return (
-        <div className="flex flex-col items-center py-10 bg-[--primary-v1]">
+        <div className="flex flex-col items-center py-10 bg-[--primary-v1]" id="howToJoin">
             <h2 className=" px-[2rem] sm:px-[5rem] text-4xl  font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>Experience the best with TukarUSDT OTC—join us now! </h2>
             <div className="flex flex-col items-center justify-center gap-3 w-full">
                 {steps.map((step, index) => (

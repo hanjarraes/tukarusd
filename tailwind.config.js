@@ -4,6 +4,10 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero': "url('/src/assets/hero.png')",
+        'hero-mobile': "url('/src/assets/hero-mobile.png')",
+      },
       keyframes: {
         marquee: {
           from: { transform: "translateX(0)" },

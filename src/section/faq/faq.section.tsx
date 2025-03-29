@@ -41,7 +41,7 @@ export default function FAQSection() {
     };
 
     return (
-        <section className="bg-gradient-to-r from-[--primary-v2] to-[--primary-v3]">
+        <section className="bg-gradient-to-r from-[--primary-v2] to-[--primary-v3]" id='faq'>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="#faq">
                 <h2 className="text-4xl font-bold text-center text-[--primary-v6] mb-10" data-aos="fade-up" data-aos-duration={`1000`}>
                     TukarUSDT FAQ: Everything You Need to Know

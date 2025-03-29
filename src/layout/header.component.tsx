@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Logo from '../assets/logo.png'
-import { title } from 'process';
-import { link } from 'fs';
+
 
 interface IDropdownItem {
+    link:string
     icon: string;
     title: string;
     description: string;
@@ -13,29 +13,29 @@ interface IDropdownItem {
 export default function Header(): React.ReactElement {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownItems: IDropdownItem[] = [
-        { icon: "ri-home-3-line", title: "Home", description: "Get a better understanding of your traffic" },
-        { icon: "ri-line-chart-line", title: "Features", description: "Speak directly to your customers" },
-        { icon: "ri-git-repository-private-line", title: "How To Join", description: "Your customers’ data will be safe and secure" },
-        { icon: "ri-team-line", title: "Review", description: "Connect with third-party tools" },
-        { icon: "ri-questionnaire-line", title: "FAQ", description: "Build strategic funnels that will convert" },
+        { link:"#home", icon: "ri-home-3-line", title: "Home", description: "Get a better understanding of your traffic" },
+        { link:"#features", icon: "ri-line-chart-line", title: "Features", description: "Speak directly to your customers" },
+        { link:"#howToJoin", icon: "ri-git-repository-private-line", title: "How To Join", description: "Your customers’ data will be safe and secure" },
+        { link:"#review", icon: "ri-team-line", title: "Review", description: "Connect with third-party tools" },
+        { link:"#faq", icon: "ri-questionnaire-line", title: "FAQ", description: "Build strategic funnels that will convert" },
     ];
 
     const menuItems = [
         {
             title: "Home",
-            link: "#",
+            link: "#home",
         },
         {
             title: "Features",
-            link: "#",
+            link: "#features",
         },
         {
             title: "How To Join",
-            link: "#",
+            link: "#howToJoin",
         },
         {
             title: "Review",
-            link: "#",
+            link: "#review",
         },
         {
             title: "FAQ",
@@ -43,13 +43,13 @@ export default function Header(): React.ReactElement {
         },
     ];
 
-    const DropdownItem = ({ icon, title, description }: IDropdownItem) => (
+    const DropdownItem = ({ icon, title, link }: IDropdownItem) => (
         <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-[--primary-v4]">
             <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-300 group-hover:bg-[--primary-v1]">
                 <i className={`text-[20px] ${icon}`} />
             </div>
             <div className="flex-auto">
-                <a href="#" className="block font-semibold text-[--primary-v1]">
+                <a href={link} className="block font-semibold text-[--primary-v1]" onClick={() =>setIsOpen(false)}>
                     {title}
                     <span className="absolute inset-0"></span>
                 </a>
@@ -82,13 +82,13 @@ export default function Header(): React.ReactElement {
                                 <span className='text-[20px]'> 🇮🇩</span>
                             </button>
                         </div>
-
                     </div>
-                    <div className="flex lg:hidden lg:gap-x-12">
+                    <div />
+                    <div className="flex lg:hidden lg:gap-x-12 fixed z-[999] right-5 bg-[--primary-v3] px-3 py-2 rounded-full">
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center  border-gray-100 hover:bg-gray-50  border-0 hover:text-primary-700 p-0 hover:text-[--primary-v1]hover:text-[--primary-v1] hover:bg-transparent border-[--primary-v4] text-[--primary-v3] "
+                                className="flex items-center  border-gray-100 hover:bg-gray-50  border-0 hover:text-primary-700 p-0 hover:text-[--primary-v1]hover:text-[--primary-v1] hover:bg-transparent border-[--primary-v4] text-[--primary-v1] "
                                 aria-expanded={isOpen}
                                 onClick={() => setIsOpen(!isOpen)}
                             >

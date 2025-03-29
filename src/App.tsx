@@ -1,13 +1,10 @@
-import Content from 'layout/content.component'
-import { useEffect, useRef } from 'react'
-import { Outlet } from 'react-router'
+import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import Header from 'layout/header.component'
-import Footer from 'layout/footer.component'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MainPage from 'pages/main-page/main-page.component'
 
 function App(): React.ReactElement {
-    const contentRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         AOS.init({
@@ -18,13 +15,11 @@ function App(): React.ReactElement {
 
     return (
         <>
-            <div className="logistical-layout">
-                <Header />
-                <Content>
-                    <Outlet />
-                </Content>
-                <Footer />
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<MainPage />} />
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }

@@ -1,8 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
-import { IBlob, IFetch, IFetchOptions, IPost, IRoute } from './common.interface'
+import { IBlob, IFetch, IFetchOptions, IPost } from './common.interface'
 import { useEffect } from 'react'
-import { getConfig } from 'config/config.service'
-import { mainRoutes } from './routes/routes'
 
 const getBaseUrl = () => {
     return 'https://otc.corecraft.my.id/'
@@ -89,29 +87,6 @@ export const fecthBlob = async <D, T>(props: IBlob<T>) => {
             throw new Error('No Data Available')
         }
     }
-}
-
-export const getModuleParentId = () => {
-    let parentIds: string[] = []
-
-    mainRoutes.forEach((dt) => {
-        if (!dt.parentId) {
-            return
-        }
-
-        parentIds.push(dt.parentId)
-
-        let sub: IRoute[] | undefined = dt.sub
-        if (sub) {
-            sub?.forEach((dtSub) => {
-                if (!dtSub.parentId) {
-                    return
-                }
-                parentIds.push(dtSub.parentId)
-            })
-        }
-    })
-    return parentIds
 }
 
 /**

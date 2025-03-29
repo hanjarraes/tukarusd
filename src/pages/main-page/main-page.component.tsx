@@ -3,29 +3,32 @@ import FeaturesSection from 'section/feature/feature.section'
 import FAQSection from 'section/faq/faq.section'
 import ReviewSection from 'section/review/review.section'
 import Hero from '../../assets/hero.png'
+import HeroMobile from '../../assets/hero-mobile.png'
 import InviteSection from 'section/invite/invite.section'
 import './main-page.style.css'
+import Header from 'layout/header.component'
+import Footer from 'layout/footer.component'
 
 const MainPage = () => {
 
     return (
         <>
+        <Header />
             {/* Hero */}
-            <section className="relative bg-[--primary-v5] text-[--primary-v1] h-[500px]">
-                <div className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage: `url('${Hero}')`
-                    }}>
+            <section className="relative bg-[--primary-v5] text-[--primary-v1] lg:h-[500px] sm:h-[500px] h-[800px]" id='home'>
+                <div
+                    className="absolute inset-0 bg-cover bg-hero-mobile md:bg-hero  bg-[right_20%_top_50%] sm:bg-[right_30%_top_20%] md:bg-[right_20%_top_20%] lg:bg-center"
+                >
                     <div className="absolute inset-0 bg-black opacity-10"></div>
                 </div>
 
-                <div className="relative flex flex-col justify-center h-full py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 items-center sm:items-start">
+                <div className="relative flex flex-col justify-start pt-[10rem] sm:pt-0 sm:justify-center h-full py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 items-center sm:items-start">
                     <h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-[--primary-v6] text-center sm:text-start" data-aos="fade-in" data-aos-duration={`1000`}>TukarUSDT OTC</h1>
                     <p className="max-w-2xl mb-6 text-[--primary-v6] lg:mb-8 md:text-lg lg:text-xl font-bold w-[350px] text-center sm:text-start" data-aos="fade-in" data-aos-duration={`1000`}>Sell your USDT with us for the best rates and secure transactions!</p>
                     <a
                         data-aos="fade-in" data-aos-duration={`1000`}
                         href="#"
-                        className="no-underline bg-blue-600 text-white px-[5rem] py-3 rounded-3xl hover:bg-blue-500 w-fit" >
+                        className="no-underline bg-blue-600 text-white px-[5rem] py-3 rounded-3xl hover:bg-blue-500 w-fit font-bold" >
                         Start OTC
                     </a>
                 </div>
@@ -37,16 +40,16 @@ const MainPage = () => {
                 <div className="relative max-w-screen-xl md:px-[5rem] lg:px-[10rem] px-3 py-8 mx-auto w-fit text-center rounded-lg  bg-gradient-to-r from-[--primary-v2] to-[--primary-v3] mt-[-69px] shadow-2xl" data-aos="fade-up" data-aos-duration={`1000`}>
                     <div className="grid max-w-screen-md gap-8 mx-auto lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 text-[--primary-v1]">
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">15000+</dt>
-                            <dd className="font-light text-[--primary-v4]">Total users</dd>
+                            <div className="mb-2 text-3xl md:text-4xl font-extrabold">15000+</div>
+                            <dd className="font-bold text-[--primary-v4]">Total users</dd>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">$100M+</dt>
-                            <dd className="font-light text-[--primary-v4]">Daily turnover</dd>
+                            <div className="mb-2 text-3xl md:text-4xl font-extrabold">$100M+</div>
+                            <dd className="font-bold text-[--primary-v4]">Daily turnover</dd>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl md:text-4xl font-extrabold">100.000+</dt>
-                            <dd className="font-light text-[--primary-v4]">Transactions</dd>
+                            <div className="mb-2 text-3xl md:text-4xl font-extrabold">100.000+</div>
+                            <dd className="font-bold text-[--primary-v4]">Transactions</dd>
                         </div>
                     </div>
                 </div>
@@ -370,6 +373,7 @@ const MainPage = () => {
                 </div>
             </section> */}
             {/* and team */}
+            <Footer />
         </>
     )
 }

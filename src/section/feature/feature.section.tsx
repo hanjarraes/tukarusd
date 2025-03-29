@@ -46,10 +46,10 @@ const features = [
 
 const FeaturesSection = () => {
     return (
-        <section className="bg-[--primary-v1]">
+        <section className="bg-[--primary-v1]" id="features">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <div className="max-w-screen-md mb-8 lg:mb-16" data-aos="fade-up" data-aos-duration={`1000`}>
-                    <div className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v4]">
+                    <div className="mb-4 text-4xl tracking-tight font-extrabold text-[--primary-v6]">
                         Discover TukarUSDT Features:<br /> Secure & Seamless USDT Trading
                     </div>
                 </div>

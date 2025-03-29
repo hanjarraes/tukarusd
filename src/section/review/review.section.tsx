@@ -36,7 +36,7 @@ const ReviewSection = () => {
     const convertToKB = (bytes: number) => (bytes / 1024).toFixed(2);
 
     return (
-        <section className="">
+        <section className="" id="review">
             {/* <div className="max-w-7xl mx-auto grid grid-cols-5 gap-2 py-10"> */}
             {/* <div className="col-span-2 flex flex-col max-w-xl shadow-sm rounded-xl lg:p-12 bg-[--primary-v4] text-[--primary-v1] border-[1px] border-gray-600">
                     <div className="flex flex-col items-center w-full">
