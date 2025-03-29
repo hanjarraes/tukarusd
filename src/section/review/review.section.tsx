@@ -133,50 +133,42 @@ const ReviewSection = () => {
                     {t("theyTalkAbout")}
                 </div>
 
-                {/* Wrapper untuk padding kiri-kanan */}
-                <div className="relative w-full overflow-hidden">
-                    <div className="relative w-full overflow-hidden">
-                        <div className="flex justify-center w-full pt-10 text-[--primary-v6] px-[2rem] sm:px-[5rem] text-4xl font-bold">
-                            They Talk About Us
-                        </div>
-                        {/* Scrollable container */}
-                        <div
-                            className="relative w-full py-10 overflow-x-auto whitespace-nowrap scrollbar-hide"
-                            ref={containerRef}
-                        >
-                            <div className="flex gap-4 px-4 sm:px-10 w-max">
-                                {[...dataReview, ...dataReview].map(({ name, updated_at, rating, message, file }, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex flex-col w-[350px] sm:w-[400px] shrink-0 rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-[--primary-v4]"
-                                    >
-                                        <div className="flex justify-between pl-4">
-                                            <div className="flex space-x-4">
-                                                <div>
-                                                    <h4 className="font-bold break-words">{name}</h4>
-                                                    <span className="text-xs text-[--primary-v1] break-words">{updated_at}</span>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center justify-center text-yellow-400 bg-[--primary-v5] w-11 h-11 rounded-full">
-                                                <span className="text-xl font-bold">{rating}</span>
-                                            </div>
-                                        </div>
-                                        {file && (
-                                            <div className="flex justify-center mt-4">
-                                                <img
-                                                    src={'https://otc.corecraft.my.id/' + file}
-                                                    className="w-full h-[250px] rounded-md pointer-events-none"
-                                                    alt="Review"
-                                                />
-                                            </div>
-                                        )}
-                                        <div className="p-4 space-y-2 text-sm text-[--primary-v1] h-[150px] overflow-y-auto break-words leading-relaxed">
-                                            <p className="whitespace-pre-wrap">{message}</p>
+                {/* Scrollable container */}
+                <div
+                    className="relative w-full py-10 overflow-x-auto whitespace-nowrap scrollbar-hide"
+                    ref={containerRef}
+                >
+                    <div className="flex gap-4 px-4 sm:px-10 w-max">
+                        {[...dataReview, ...dataReview].map(({ name, updated_at, rating, message, file }, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col w-[350px] sm:w-[400px] shrink-0 rounded-md p-6 text-[--primary-v1] bg-[--primary-v4] border-[1px] border-[--primary-v4]"
+                            >
+                                <div className="flex justify-between pl-4">
+                                    <div className="flex space-x-4">
+                                        <div>
+                                            <h4 className="font-bold break-words">{name}</h4>
+                                            <span className="text-xs text-[--primary-v1] break-words">{updated_at}</span>
                                         </div>
                                     </div>
-                                ))}
+                                    <div className="flex items-center justify-center text-yellow-400 bg-[--primary-v5] w-11 h-11 rounded-full">
+                                        <span className="text-xl font-bold">{rating}</span>
+                                    </div>
+                                </div>
+                                {file && (
+                                    <div className="flex justify-center mt-4">
+                                        <img
+                                            src={'https://otc.corecraft.my.id/' + file}
+                                            className="w-full h-[250px] rounded-md pointer-events-none"
+                                            alt="Review"
+                                        />
+                                    </div>
+                                )}
+                                <div className="p-4 space-y-2 text-sm text-[--primary-v1] h-[150px] overflow-y-auto break-words leading-relaxed">
+                                    <p className="whitespace-pre-wrap">{message}</p>
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
