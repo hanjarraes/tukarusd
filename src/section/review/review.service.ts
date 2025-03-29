@@ -12,12 +12,10 @@ const useReview = () => {
     const [rating, setRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
 
-    const [offset, setOffset] = useState(0);
-    const itemWidth = 420; // Lebar kartu + margin/gap
-    const containerRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [dragOffset, setDragOffset] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+    const scrollSpeed = 0.5; // Kecepatan scroll otomatis
+    const duration = 5000; // Durasi dalam milidetik
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -131,33 +129,38 @@ const useReview = () => {
         setIsLoading(false);
         await getReview()
     }
-    
+
     useEffect(() => {
-      const interval = setInterval(() => {
-        if (!isDragging) {
-          setOffset((prevOffset) => (prevOffset - itemWidth) % (dataReview.length * itemWidth));
-        }
-      }, 10000);
-      return () => clearInterval(interval);
-    }, [dataReview.length, isDragging]);
-  
-    const handleMouseDown = (e: any) => {
-      setIsDragging(true);
-      setStartX(e.clientX);
-      setDragOffset(offset);
-    };
-  
-    const handleMouseMove = (e: any) => {
-      if (!isDragging) return;
-      const diff = e.clientX - startX;
-      setOffset(dragOffset + diff);
-    };
-  
-    const handleMouseUp = () => {
-      setIsDragging(false);
-      const adjustedOffset = Math.round(offset / itemWidth) * itemWidth;
-      setOffset(adjustedOffset);
-    };
+        const container = containerRef.current;
+        if (!container) return;
+
+        let animationFrame: number;
+        let start: number | null = null;
+
+        const smoothScroll = (timestamp: number) => {
+            if (!start) start = timestamp;
+            const elapsed = timestamp - start;
+
+            if (elapsed < duration) {
+                container.scrollLeft += scrollSpeed;
+                animationFrame = requestAnimationFrame(smoothScroll);
+            } else {
+                start = null;
+                animationFrame = requestAnimationFrame(smoothScroll);
+            }
+        };
+
+        const startScrolling = () => {
+            if (!isScrolling) {
+                setIsScrolling(true);
+                animationFrame = requestAnimationFrame(smoothScroll);
+            }
+        };
+
+        startScrolling();
+
+        return () => cancelAnimationFrame(animationFrame);
+    }, []);
 
 
     useEffect(() => {
@@ -173,10 +176,6 @@ const useReview = () => {
         rating,
         hoverRating,
         containerRef,
-        offset,
-        handleMouseDown,
-        handleMouseUp,
-        handleMouseMove,
         setRating,
         setHoverRating,
         updateData,
