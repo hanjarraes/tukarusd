@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero': "url('/src/assets/hero.png')",
-        'hero-mobile': "url('/src/assets/hero-mobile.png')",
+        'hero-mobile': "url('/src/assets/hero-mobile2.png')",
       },
       keyframes: {
         marquee: {
