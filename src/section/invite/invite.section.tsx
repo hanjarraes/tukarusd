@@ -1,34 +1,36 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-const steps = [
-    {
-        title: "Click Start OTC",
-        description: "Join TukarUSDT now—Click Start OTC",
-        icon: "ri-user-follow-line",
-    },
-    {
-        title: "Consult with Our Team",
-        description: "Let’s talk! Contact our team and set up a discussion.",
-        icon: "ri-customer-service-2-line",
-    },
-    {
-        title: "Join Our VIP Group",
-        description: "Consult with us and enhance your trading journey.",
-        icon: "ri-group-line",
-    },
-    {
-        title: "Start Trading ",
-        description: "We’re here to assist you 24/7, wherever you are.",
-        icon: "ri-money-dollar-circle-line",
-    },
-];
+
 
 export default function InviteSection() {
     const [activeStep, setActiveStep] = useState(0);
-
+    const { t } = useTranslation()
+    const steps = [
+        {
+            title: t("stepClickStartOTC"),
+            description: t("stepClickStartOTCDesc"),
+            icon: "ri-user-follow-line",
+        },
+        {
+            title: t("stepConsultTeam"),
+            description: t("stepConsultTeamDesc"),
+            icon: "ri-customer-service-2-line",
+        },
+        {
+            title: t("stepJoinVIP"),
+            description: t("stepJoinVIPDesc"),
+            icon: "ri-group-line",
+        },
+        {
+            title: t("stepStartTrading"),
+            description: t("stepStartTradingDesc"),
+            icon: "ri-money-dollar-circle-line",
+        },
+    ];
     return (
         <div className="flex flex-col items-center py-10 bg-[--primary-v1]" id="howToJoin">
-            <h2 className=" px-[2rem] sm:px-[5rem] text-4xl  font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>Experience the best with TukarUSDT OTC—join us now! </h2>
+            <h2 className=" px-[2rem] sm:px-[5rem] text-4xl  font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>{t("experienceBest")}</h2>
             <div className="flex flex-col items-center justify-center gap-3 w-full">
                 {steps.map((step, index) => (
                     <div key={index} className="flex flex-col items-center w-[350px] sm:w-[600px]" data-aos="fade-up" data-aos-duration={`1000`}>

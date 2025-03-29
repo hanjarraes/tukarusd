@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useReview from "./review.service";
+import { useTranslation } from "react-i18next";
 
 const ReviewSection = () => {
     const stars = [1, 2, 3, 4, 5];
@@ -34,6 +35,7 @@ const ReviewSection = () => {
         handleDrop,
     } = useReview()
     const convertToKB = (bytes: number) => (bytes / 1024).toFixed(2);
+    const { t } = useTranslation()
 
     return (
         <section className="" id="review">
@@ -128,7 +130,7 @@ const ReviewSection = () => {
                 </div> */}
             <div className="relative w-full overflow-hidden ">
                 <div className="flex justify-center w-full pt-10 text-[--primary-v6] px-[2rem] sm:px-[5rem] text-4xl font-bold" data-aos="fade-up" data-aos-duration={`1000`}>
-                    They Talk About TukarUSDT – See What They Say!
+                    {t("theyTalkAbout")}
                 </div>
                 <div
                     className="relative w-full py-10 cursor-grab active:cursor-grabbing"

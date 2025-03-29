@@ -1,25 +1,19 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
-import Backend from 'i18next-http-backend'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-// Function to determine preferred language
-const determineLanguage = () => {
-    return 'en'
-}
+import enTranslation from '../locales/en/translation.json';
+import idTranslation from '../locales/id/translation.json';
 
-// Set the language before initializing i18next
-const preferredLanguage = determineLanguage()
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: enTranslation },
+      id: { translation: idTranslation },
+    },
+    lng: 'en',
+    fallbackLng: 'en',
+    interpolation: { escapeValue: false },
+  });
 
-i18n.use(Backend)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        lng: preferredLanguage,
-        supportedLngs: ['en', 'de', 'es', 'fr', 'id', 'ja', 'pl', 'zh'],
-        debug: false,
-        fallbackLng: 'en',
-        nonExplicitSupportedLngs: true,
-    })
-
-export default i18n
+export default i18n;

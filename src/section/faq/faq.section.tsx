@@ -1,37 +1,5 @@
 import { useState } from "react";
-
-const faqs = [
-    {
-        question: "What is OTC?",
-        answer:
-            "Over-the-Counter (OTC) trading refers to the direct exchange of crypto assets between two parties without relying on a traditional exchange, allowing for greater flexibility and accommodating larger transaction volumes.",
-    },
-    {
-        question: "How to Begin OTC Trading with TukarUSDT?",
-        answer:
-            "Connect with the OTC Team: Engage with our expert OTC team to customize your trading experience.Begin Trading: Our dedicated team offers personalized solutions for your OTC transactions.",
-    },
-    {
-        question: "How Long Does It Take to Process an OTC Transaction with TukarUSDT?",
-        answer:
-            "TukarUSDT OTC transactions are generally processed within 1×24 hours, depending on the availability of our OTC trading team and market conditions.",
-    },
-    {
-        question: "What Security System is Applied to OTC Trading?",
-        answer:
-            "TukarUSDT will contact you through a private group with our specialized team to ensure a faster and more secure OTC transaction process.",
-    },
-    {
-        question: "What Are the Minimum and Maximum Transaction Limits for OTC at TukarUSDT?",
-        answer:
-            "TukarUSDT OTC has a minimum transaction limit of 5 million IDR, with the maximum value adjustable to your needs. Please contact our OTC team for further details and personalized offers.",
-    },
-    {
-        question: "Which Cryptocurrencies Are Available for Trading with TukarUSDT OTC?",
-        answer:
-            "You can trade a variety of crypto assets through OTC, with a primary focus on the stablecoin USDT.",
-    },
-];
+import { useTranslation } from "react-i18next";
 
 export default function FAQSection() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -40,11 +8,23 @@ export default function FAQSection() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
+    const { t } = useTranslation();
+
+    const faqs = [
+        { question: t("faqWhatIsOTC"), answer: t("faqWhatIsOTCAnswer") },
+        { question: t("faqHowToBeginOTC"), answer: t("faqHowToBeginOTCAnswer") },
+        { question: t("faqHowLongOTC"), answer: t("faqHowLongOTCAnswer") },
+        { question: t("faqOTCSecurity"), answer: t("faqOTCSecurityAnswer") },
+        { question: t("faqOTCLimits"), answer: t("faqOTCLimitsAnswer") },
+        { question: t("faqAvailableCrypto"), answer: t("faqAvailableCryptoAnswer") },
+    ];
+
+
     return (
         <section className="bg-gradient-to-r from-[--primary-v2] to-[--primary-v3]" id='faq'>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="#faq">
                 <h2 className="text-4xl font-bold text-center text-[--primary-v6] mb-10" data-aos="fade-up" data-aos-duration={`1000`}>
-                    TukarUSDT FAQ: Everything You Need to Know
+                  { t("faqTitle")}
                 </h2>
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
