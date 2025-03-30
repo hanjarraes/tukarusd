@@ -1,10 +1,24 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Stepper from "./stepper.component";
 
 
 
 export default function InviteSection() {
     const [activeStep, setActiveStep] = useState(0);
+
+    const nextStep = () => {
+        if (activeStep < steps.length - 1) {
+            setActiveStep(activeStep + 1);
+        }
+    };
+
+    const prevStep = () => {
+        if (activeStep > 0) {
+            setActiveStep(activeStep - 1);
+        }
+    };
+
     const { t } = useTranslation()
     const steps = [
         {
@@ -31,7 +45,7 @@ export default function InviteSection() {
     return (
         <div className="flex flex-col items-center py-10 bg-[--primary-v1]" id="howToJoin">
             <h2 className=" px-[2rem] sm:px-[5rem] text-4xl  font-semibold mb-6 text-[--primary-v6]" data-aos="fade-up" data-aos-duration={`1000`}>{t("experienceBest")}</h2>
-            <div className="flex flex-col items-center justify-center gap-3 w-full">
+            <div className="items-center justify-center gap-3 w-full hidden sm:flex flex-col">
                 {steps.map((step, index) => (
                     <div key={index} className="flex flex-col items-center w-[350px] sm:w-[600px]" data-aos="fade-up" data-aos-duration={`1000`}>
                         <div className="grid grid-cols-3 gap-1 sm:gap-3 w-full items-center">
@@ -64,6 +78,7 @@ export default function InviteSection() {
                     </div>
                 ))}
             </div>
+            <Stepper steps={steps} />
         </div>
     );
 }

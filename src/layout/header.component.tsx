@@ -74,21 +74,23 @@ export default function Header(): React.ReactElement {
                         </a>
                         <div className="flex flex-row items-center right-1 rounded-md ml-2 cursor-pointer">
                             <button
-                                className={`${currentLanguage === 'en' && 'bg-[--primary-v3]'} p-2 flex flex-row gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-l-md border-r-0 cursor-pointer ${currentLanguage === "en" ? "bg-[--primary-v3]" : ""
-                                    }`}
+                                className={
+                                    `${currentLanguage === 'en' && 'bg-[--primary-v3] text-[--primary-v1]'} 
+                                    p-2 flex flex-row gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-l-md border-r-0 cursor-pointer `}
                                 onClick={() => handleChangeLanguage("en")}
                             >
-                                <span className="text-md">En</span>
-                                <span className='text-[20px]'>🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                                <span className='text-[20px]'>🇬🇧</span>
+                                <span className="text-md font-bold w-[20px]">EN</span>
                             </button>
 
                             <button
-                                className={`${currentLanguage === 'id' && 'bg-[--primary-v3]'} p-2 flex flex-row gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-r-md cursor-pointer ${currentLanguage === "id" ? "bg-[--primary-v3]" : ""
-                                    }`}
+                                className={`
+                                    ${currentLanguage === 'id' && 'bg-[--primary-v3] text-[--primary-v1]'} 
+                                    p-2 flex flex-row gap-2 items-center border border-gray-300 text-sm font-medium text-gray-700 hover:bg-[--primary-v3] focus:bg-[--primary-v3] hover:text-[--primary-v1] focus:outline-none rounded-r-md cursor-pointer `}
                                 onClick={() => handleChangeLanguage("id")}
                             >
-                                <span className="text-md">Id</span>
                                 <span className="text-[20px]">🇮🇩</span>
+                                <span className="text-md font-bold w-[20px]">ID</span>
                             </button>
                         </div>
                     </div>
